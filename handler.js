@@ -7,17 +7,23 @@ let acrostico = document.getElementById("acrostico");
 boton.addEventListener("click", function () {
 
     resultado.innerHTML = "";
-
+    
     let palabra = caja.value.toUpperCase();
+    caja.style.marginBottom = "15px";
 
     for (let i = 0; i < palabra.length; i++) {
 
+      if (palabra[i] == " ") {
+        continue;
+      }
+
         let fila = document.createElement("div");
-        fila.style.marginBottom = "15px";
         fila.className = "fila";
+        fila.style.marginBottom = "15px";
 
         let letra = document.createElement("span");
         letra.textContent = palabra[i];
+        letra.style.marginRight = "10px";
 
         let input = document.createElement("input");
         input.type = "text";
@@ -26,10 +32,10 @@ boton.addEventListener("click", function () {
         fila.appendChild(input);
 
         resultado.appendChild(fila);
-
-        
     }
-    
+
+    resultado.after(finalizar);
+    finalizar.style.display = "inline";
 });
 
 finalizar.addEventListener("click", function () {
