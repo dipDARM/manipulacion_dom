@@ -1,9 +1,10 @@
 let color = document.getElementById("color");
 let numero = document.getElementById("numero");
-let boton = document.getElementById("boton");
 
-boton.addEventListener("click", () => {
+numero.addEventListener("keyup", () => {
     let colorValue = "text"+numero.value;
     let textElement = document.getElementById(colorValue);
-    objTextocambio.style.color = color.value;
+    textElement.style.color = color.value;
+
+    console.log(color.options[color.selectedIndex].text);
 });
